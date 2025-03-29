@@ -1,0 +1,185 @@
+/* --- Retro CRT Theme --- */
+body {
+    background-color: #0a0a0a; /* Very dark grey/black */
+    color: #00ff41; /* Bright green */
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    margin: 0;
+    padding: 20px;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgba(0, 20, 0, 0.8); /* Dark green semi-transparent */
+    border: 2px solid #00ff41;
+    box-shadow: 0 0 15px #00ff41, inset 0 0 10px rgba(0, 255, 65, 0.3);
+    padding: 25px;
+    position: relative; /* Needed for CRT effect */
+    overflow: hidden; /* Keep effect contained */
+}
+
+/* --- CRT Scanline/Glow Effect --- */
+.crt-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 3px, 3px 100%;
+    z-index: 1;
+    pointer-events: none; /* Don't interfere with clicks */
+    animation: flicker 0.15s infinite;
+}
+
+@keyframes flicker {
+    0% { opacity: 0.9; }
+    50% { opacity: 0.95; }
+    100% { opacity: 0.9; }
+}
+
+
+h1, h2 {
+    color: #00ff41;
+    text-shadow: 0 0 5px #00ff41;
+    border-bottom: 1px solid #00cc33;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    font-size: 1.8em; /* Make headings bigger */
+    position: relative;
+     z-index: 2;
+}
+h1 { font-size: 2.2em; }
+
+
+.subtitle {
+    color: #00cc33; /* Slightly darker green */
+    margin-top: -15px;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+     position: relative;
+     z-index: 2;
+}
+
+.section {
+    margin-bottom: 30px;
+    padding: 15px;
+    border: 1px dashed #008020; /* Darker green dashed border */
+    position: relative;
+     z-index: 2;
+}
+
+.form-group {
+    margin-bottom: 15px;
+     position: relative;
+     z-index: 2;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #00dd3a;
+    position: relative;
+     z-index: 2;
+}
+
+input[type="file"],
+textarea,
+button {
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 1px solid #00ff41;
+    color: #00ff41;
+    font-family: 'VT323', monospace;
+    padding: 8px 10px;
+    font-size: 1em;
+    width: calc(100% - 22px); /* Full width minus padding/border */
+    margin-bottom: 10px;
+    box-shadow: inset 0 0 5px rgba(0, 255, 65, 0.2);
+    position: relative;
+    z-index: 2;
+}
+
+input[type="file"] {
+     padding: 5px; /* Adjust file input padding */
+}
+
+textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+button {
+    width: auto; /* Allow button to size naturally */
+    cursor: pointer;
+    background-color: #00330a; /* Darker green background */
+    padding: 10px 20px;
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+    background-color: #005511;
+    box-shadow: 0 0 10px #00ff41;
+}
+
+button:active {
+    background-color: #00ff41;
+    color: #0a0a0a;
+}
+
+canvas {
+    border: 1px solid #008020;
+    margin-bottom: 10px;
+    background-color: #050505; /* Slightly lighter black for canvas background */
+     max-width: 100%; /* Make canvas responsive */
+     height: auto;   /* Maintain aspect ratio */
+    display: block; /* Ensure block display */
+    position: relative;
+    z-index: 2;
+}
+
+.separator {
+    text-align: center;
+    color: #008020;
+    margin: 30px 0;
+    font-size: 0.9em;
+    position: relative;
+    z-index: 2;
+}
+
+.status-box {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #008020;
+    background-color: rgba(0, 10, 0, 0.7);
+    position: relative;
+    z-index: 2;
+}
+
+#status-message {
+    margin: 0;
+    font-style: italic;
+    color: #00cc33;
+    position: relative;
+    z-index: 2;
+}
+
+a#download-link {
+    display: inline-block; /* Correct display */
+    padding: 8px 15px;
+    background-color: #00330a;
+    border: 1px solid #00ff41;
+    color: #00ff41;
+    text-decoration: none;
+    font-size: 1em;
+    margin-top: 10px;
+    position: relative;
+    z-index: 2;
+}
+a#download-link:hover {
+     background-color: #005511;
+     box-shadow: 0 0 10px #00ff41;
+}

@@ -1,0 +1,21 @@
+[package]
+name = "wasm_steganography_retro"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"] # Compile to dynamic library for WASM
+
+[dependencies]
+wasm-bindgen = "0.2"
+
+# For console.log etc.
+web-sys = { version = "0.3", features = ["console"] }
+
+# Optional: For better panic messages in the browser console
+console_error_panic_hook = { version = "0.1.7", optional = true }
+
+[profile.release]
+# Optimize for small code size
+opt-level = "s"
+lto = true

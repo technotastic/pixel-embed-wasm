@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RetroSteg :: WASM Steganography</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="crt-effect"></div>
+        <h1>RetroSteg :: LSB Image Steganography</h1>
+        <p class="subtitle">> Powered by Rust & WebAssembly_</p>
+
+        <div class="section">
+            <h2>++ Embed Message ++</h2>
+            <div class="form-group">
+                <label for="cover-image-input">> Select Cover Image (.png recommended):</label>
+                <input type="file" id="cover-image-input" accept="image/png, image/jpeg">
+            </div>
+            <canvas id="original-canvas" width="300" height="200" title="Original Image Preview"></canvas>
+
+            <div class="form-group">
+                <label for="secret-message">> Secret Message (Type or Load):</label>
+                <textarea id="secret-message" rows="4" placeholder="Enter your secret message here..."></textarea>
+                <label for="load-message-input">> Or Load Message From Text File (.txt):</label>
+                <input type="file" id="load-message-input" accept=".txt">
+            </div>
+            <button id="embed-button"> > Embed Data_ </button>
+
+             <label>> Encoded Image (Save as PNG):</label>
+            <canvas id="encoded-canvas" width="300" height="200" title="Encoded Image Preview"></canvas>
+             <a id="download-link" style="display: none;">> Download Encoded Image_</a>
+        </div>
+
+        <div class="separator">------------------------------------</div>
+
+        <div class="section">
+            <h2>++ Extract Message ++</h2>
+            <div class="form-group">
+                <label for="decode-image-input">> Select Image to Decode (.png recommended):</label>
+                <input type="file" id="decode-image-input" accept="image/png, image/jpeg">
+            </div>
+             <canvas id="decode-preview-canvas" width="300" height="200" title="Decode Image Preview"></canvas>
+
+            <button id="extract-button"> > Extract Data_ </button>
+
+            <div class="form-group">
+                <label for="extracted-message">> Extracted Message:</label>
+                <textarea id="extracted-message" rows="4" readonly placeholder="Extracted message will appear here..."></textarea>
+                <button id="save-message-button" style="margin-top: 10px;"> > Save Message As .txt_ </button>
+            </div>
+        </div>
+
+         <div class="status-box">
+             <p id="status-message">> Status: Ready_</p>
+         </div>
+
+    </div>
+
+    <!-- Load the JavaScript module -->
+    <script type="module" src="script.js"></script>
+</body>
+</html>
